@@ -2,7 +2,7 @@
 
 namespace AppCore.DataAccess.Results
 {
-    internal class SuccessResult : Result
+    public class SuccessResult : Result
     {
         // başarılı sonucu döneceğimiz için parametre tanımlamadan base yapıda true dönmek yeterli
         public SuccessResult(string message) : base(true, message)  
