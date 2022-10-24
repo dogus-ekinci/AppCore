@@ -40,10 +40,20 @@ namespace AppCore.DataAccess.Services
             return Query().ToList();
         }
 
+        public virtual async Task<List<TEntithy>> GetListAsync()    // async çalışacak method belirledik ekstra
+        {
+            return await Query().ToListAsync();
+        }
+
         //db.Oyunlar.Where(oyun => oyun.Adi == "RDR 2").ToList().SingleOrDefault();
         public virtual List<TEntithy> GetList(Expression<Func<TEntithy, bool>> predicate)
         {
             return Query().Where(predicate).ToList();
+        }
+
+        public virtual async Task<List<TEntithy>> GetListAsync(Expression<Func<TEntithy, bool>> predicate)    // Async
+        {
+            return await Query().Where(predicate).ToListAsync();
         }
 
         public virtual TEntithy GetItem(int id)
